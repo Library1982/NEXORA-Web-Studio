@@ -1,0 +1,1 @@
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));document.addEventListener('mousemove',e=>{document.documentElement.style.setProperty('--mx',e.clientX+'px')});
