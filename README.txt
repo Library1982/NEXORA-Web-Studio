@@ -1,4 +1,4 @@
-NEXORA Studio — Light / Dark / Color Themes
+ZYORYX Digital Solutions — Light / Dark / Color Themes
 
 New features:
 - Light Mode

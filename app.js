@@ -1,5 +1,8 @@
 const glow=document.querySelector('.cursor-glow');
 document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+window.addEventListener('load',()=>window.setTimeout(()=>document.getElementById('pageLoader')?.classList.add('done'),850));
+const header=document.querySelector('header'),menuBtn=document.querySelector('.menu');
+if(header&&menuBtn){menuBtn.addEventListener('click',()=>{const open=header.classList.toggle('nav-open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰'});header.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{header.classList.remove('nav-open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const c=document.getElementById('network'),x=c.getContext('2d');let pts=[];
@@ -38,20 +41,20 @@ if(socialToggle && contactDock){
   const modeBtns=[...document.querySelectorAll('.mode-btn')];
   const colorBtns=[...document.querySelectorAll('.color-dot')];
 
-  const savedTheme=localStorage.getItem('nexora-theme') || 'dark';
-  const savedAccent=localStorage.getItem('nexora-accent') || '#6ee7ff';
-  const savedAccent2=localStorage.getItem('nexora-accent2') || '#7276ff';
+  const savedTheme=localStorage.getItem('zyoryx-theme') || 'dark';
+  const savedAccent=localStorage.getItem('zyoryx-accent') || '#22d3ee';
+  const savedAccent2=localStorage.getItem('zyoryx-accent2') || '#7c3aed';
 
   function applyTheme(theme){
     body.dataset.theme=theme;
-    localStorage.setItem('nexora-theme',theme);
+    localStorage.setItem('zyoryx-theme',theme);
     modeBtns.forEach(b=>b.classList.toggle('active',b.dataset.theme===theme));
   }
   function applyAccent(a,b){
     document.documentElement.style.setProperty('--accent',a);
     document.documentElement.style.setProperty('--accent-2',b);
-    localStorage.setItem('nexora-accent',a);
-    localStorage.setItem('nexora-accent2',b);
+    localStorage.setItem('zyoryx-accent',a);
+    localStorage.setItem('zyoryx-accent2',b);
     colorBtns.forEach(btn=>btn.classList.toggle('active',btn.dataset.accent.toLowerCase()===a.toLowerCase()));
   }
 

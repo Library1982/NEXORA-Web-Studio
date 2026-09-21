@@ -274,3 +274,104 @@ body[data-theme="light"] .social-toggle{background:#fff;color:#172333}
   .header-actions .pill{display:none}
   .header-theme-toggle{display:grid!important}
 }
+
+/* =========================================================
+   UIVERSE COMPONENT SYSTEM — adapted for ZYORYX
+   Source inspiration: Uiverse open-source CSS components (MIT)
+   ========================================================= */
+:root{--ui-radius:18px;--ui-speed:.28s;--ui-ease:cubic-bezier(.2,.8,.2,1)}
+button,a{ -webkit-tap-highlight-color:transparent }
+:where(a,button):focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.uiverse-loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--accent) 14%,#05070b),#05070b 48%);transition:opacity .55s ease,visibility .55s ease}
+.uiverse-loader.done{opacity:0;visibility:hidden;pointer-events:none}
+.uiverse-loader-core{display:none}.loader-mark{width:82px;height:82px;filter:drop-shadow(0 0 24px color-mix(in srgb,var(--accent) 42%,transparent));animation:markFloat 2.2s ease-in-out infinite}
+.uiverse-loader-core span{position:absolute;inset:8px;border:2px solid var(--accent);border-radius:18px;box-shadow:0 0 18px color-mix(in srgb,var(--accent) 45%,transparent)}
+.uiverse-loader-core span:nth-child(2){transform:rotate(60deg)}.uiverse-loader-core span:nth-child(3){transform:rotate(120deg)}
+.uiverse-loader>b{font:800 17px Manrope;letter-spacing:.32em}.uiverse-loader>small{font-size:8px;letter-spacing:.24em;color:var(--muted)}
+@keyframes uiSpin{to{transform:rotate(360deg)}}
+@keyframes markFloat{50%{transform:translateY(-7px) scale(1.04);filter:drop-shadow(0 0 34px color-mix(in srgb,var(--accent) 58%,transparent))}}
+
+/* Uiverse luminous action button */
+.primary,.plan-wa,.featured>a,.cta-section .primary,.pill{
+  position:relative;isolation:isolate;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 38%,var(--line));
+  box-shadow:inset 0 1px 0 #ffffff32,0 12px 35px color-mix(in srgb,var(--accent) 10%,transparent);
+  transition:transform var(--ui-speed) var(--ui-ease),box-shadow var(--ui-speed),border-color var(--ui-speed),filter var(--ui-speed)
+}
+.primary:before,.plan-wa:before,.featured>a:before,.pill:before{content:"";position:absolute;inset:-2px;z-index:-1;background:linear-gradient(110deg,transparent 20%,#ffffff70 44%,transparent 62%);transform:translateX(-125%) skewX(-18deg);transition:transform .7s var(--ui-ease)}
+.primary:hover:before,.plan-wa:hover:before,.featured>a:hover:before,.pill:hover:before{transform:translateX(125%) skewX(-18deg)}
+.primary:hover,.plan-wa:hover,.featured>a:hover,.pill:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 16px 45px color-mix(in srgb,var(--accent) 25%,transparent)}
+.primary:active,.plan-wa:active,.pill:active{transform:translateY(0) scale(.98)}
+
+/* Uiverse glass cards */
+.service,.price-card,.float-card,.demo-card .demo-img,.project,.steps>div{
+  position:relative;isolation:isolate;transition:transform .35s var(--ui-ease),border-color .35s,box-shadow .35s;background-clip:padding-box
+}
+.service:before,.price-card:before,.steps>div:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 72%,transparent),transparent 35%,color-mix(in srgb,var(--accent-2) 48%,transparent));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.service:hover,.price-card:hover,.steps>div:hover{transform:translateY(-8px);border-color:color-mix(in srgb,var(--accent) 50%,var(--line));box-shadow:0 28px 70px var(--shadow),0 0 35px color-mix(in srgb,var(--accent) 10%,transparent)}
+.service .icon{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 16%,var(--panel)),var(--panel));box-shadow:inset 0 1px 0 #ffffff20,0 12px 30px #0004;transition:transform .35s var(--ui-ease)}
+.service:hover .icon{transform:rotate(-8deg) scale(1.08)}
+
+/* Uiverse filter chips */
+.filters button,.mode-btn{position:relative;overflow:hidden;min-height:44px;transition:color .22s,background .22s,border-color .22s,transform .22s var(--ui-ease),box-shadow .22s}
+.filters button:hover,.mode-btn:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 24px color-mix(in srgb,var(--accent) 14%,transparent)}
+.filters button.active,.mode-btn.active{box-shadow:inset 0 1px 0 #ffffff66,0 10px 28px color-mix(in srgb,var(--accent) 23%,transparent)}
+
+/* Uiverse theme controls and social controls */
+.header-theme-toggle,.theme-main-btn,.contact-icon,.color-dot{transition:transform .28s var(--ui-ease),box-shadow .28s,border-color .28s,filter .28s}
+.header-theme-toggle:hover,.theme-main-btn:hover,.contact-icon:hover{box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 10%,transparent),0 14px 36px var(--shadow)}
+.color-dot{min-width:34px;min-height:34px}.color-dot:hover{transform:translateY(-3px) scale(1.1)}
+.theme-popover{backdrop-filter:blur(24px) saturate(140%)}
+
+/* Uiverse project-card reveal */
+.demo-img:before{content:"";position:absolute;inset:-45%;z-index:1;background:linear-gradient(100deg,transparent 38%,#ffffff28 49%,transparent 60%);transform:translateX(-70%) rotate(10deg);transition:transform .8s var(--ui-ease)}
+.demo-card:hover .demo-img:before{transform:translateX(70%) rotate(10deg)}
+.demo-card:hover .demo-img{transform:translateY(-7px) scale(1.01);box-shadow:0 26px 70px #0009,0 0 0 1px color-mix(in srgb,var(--accent) 42%,transparent)}
+
+/* Premium pricing emphasis */
+.price-card.featured{box-shadow:0 30px 90px color-mix(in srgb,var(--accent) 13%,transparent)}
+.price-card.featured:after{content:"";position:absolute;width:160px;height:160px;right:-70px;bottom:-70px;border-radius:50%;background:var(--accent);filter:blur(80px);opacity:.16;pointer-events:none}
+.save-pill,.popular,.offer-ribbon{animation:uiPulse 2.4s ease-in-out infinite}
+@keyframes uiPulse{50%{filter:brightness(1.2);box-shadow:0 0 22px color-mix(in srgb,var(--accent) 28%,transparent)}}
+
+@media(max-width:900px){
+  header nav{position:absolute;top:76px;left:14px;right:14px;display:flex!important;flex-direction:column;gap:0;padding:14px;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(24px);opacity:0;transform:translateY(-12px);pointer-events:none;transition:.25s}
+  header.nav-open nav{opacity:1;transform:none;pointer-events:auto}
+  header nav a{padding:14px;border-bottom:1px solid var(--line);min-height:48px}
+  header nav a:last-child{border:0}.menu{display:block!important;min-width:44px;min-height:44px;border:1px solid var(--line)!important;border-radius:14px!important}
+  .service:hover,.price-card:hover,.steps>div:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .uiverse-loader{display:none}.cursor-glow{display:none}
+}
+
+/* Featured live portfolio — Uiverse glass/reveal cards */
+.live-work{margin:54px 0 76px;padding:28px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,color-mix(in srgb,var(--panel) 92%,transparent),color-mix(in srgb,var(--bg) 96%,transparent));box-shadow:inset 0 1px 0 #ffffff10,0 30px 90px var(--shadow)}
+.live-work-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:24px}.live-work-head>div>small{font-size:9px;letter-spacing:.2em;color:var(--accent);font-weight:800}.live-work-head h3{font:700 clamp(28px,3vw,44px)/1.05 Manrope,sans-serif;letter-spacing:-.04em;margin:8px 0 0}.live-work-head>p{max-width:430px;color:var(--muted);font-size:13px;line-height:1.7;margin:0}.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#52e39e;box-shadow:0 0 0 5px #52e39e18,0 0 18px #52e39e;margin-right:10px;animation:livePulse 1.8s ease-in-out infinite}@keyframes livePulse{50%{transform:scale(.78);opacity:.72}}
+.live-work-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.live-site-card{display:block;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel);box-shadow:0 22px 55px #0007;transition:transform .38s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}.live-site-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 32px 80px #000a,0 0 38px color-mix(in srgb,var(--accent) 15%,transparent)}
+.live-site-image{height:430px;position:relative;background-size:cover;background-position:center;overflow:hidden}.garage-live .live-site-image{background-image:linear-gradient(180deg,rgba(2,3,5,.05),rgba(2,3,5,.95)),url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1400&q=88')}.fitness-live .live-site-image{background-image:linear-gradient(180deg,rgba(2,3,5,.05),rgba(2,3,5,.95)),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=88')}.live-site-image:before{content:"";position:absolute;inset:-60%;background:linear-gradient(105deg,transparent 43%,#ffffff20 50%,transparent 57%);transform:translateX(-50%) rotate(10deg);transition:transform .9s cubic-bezier(.2,.8,.2,1)}.live-site-card:hover .live-site-image:before{transform:translateX(50%) rotate(10deg)}
+.live-badge,.industry-badge{position:absolute;top:18px;z-index:2;border-radius:999px;font-size:8px;font-weight:900;letter-spacing:.14em;padding:9px 12px;backdrop-filter:blur(12px)}.live-badge{left:18px;background:#4be299;color:#04130c;box-shadow:0 8px 28px #4be29935}.industry-badge{right:18px;border:1px solid #ffffff2f;background:#05070baa;color:#fff}.live-site-overlay{position:absolute;z-index:2;left:24px;right:24px;bottom:24px;color:#fff}.live-site-overlay small{font-size:9px;letter-spacing:.2em;color:var(--accent);font-weight:900}.live-site-overlay h4{font:700 clamp(25px,2.5vw,38px)/1.08 Manrope,sans-serif;letter-spacing:-.035em;margin:9px 0}.live-site-overlay p{max-width:490px;color:#b6c0cc;font-size:11px;line-height:1.6;margin:0 0 22px}.live-site-overlay b{display:inline-flex;align-items:center;gap:12px;font-size:9px;letter-spacing:.16em}.live-site-overlay b i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#061016;font-style:normal;transition:transform .3s}.live-site-card:hover .live-site-overlay b i{transform:rotate(45deg) scale(1.08)}
+body[data-theme="light"] .live-work{background:linear-gradient(145deg,#fff,#f1f5f9)}
+@media(max-width:800px){.live-work{margin:36px 0 58px;padding:15px;border-radius:20px}.live-work-head{display:block}.live-work-head>p{margin-top:12px}.live-work-grid{grid-template-columns:1fr}.live-site-image{height:390px}.live-site-overlay{left:18px;right:18px;bottom:18px}.live-site-overlay p{font-size:10px}.live-site-card:hover{transform:none}}
+@media(max-width:480px){.live-site-image{height:360px}.live-badge,.industry-badge{top:13px;padding:8px 9px}.live-badge{left:13px}.industry-badge{right:13px}.live-site-overlay h4{font-size:26px}}
+
+/* Live websites shown directly inside Explore by industry */
+.live-demo-card .demo-img{border-color:color-mix(in srgb,#49e49c 52%,var(--line));box-shadow:0 22px 58px #0007,0 0 0 1px #49e49c12}
+.portfolio-live-dot{position:absolute;z-index:3;right:18px;top:18px;padding:8px 11px;border-radius:999px;background:#48df98;color:#04160e;font-size:8px;font-weight:900;font-style:normal;letter-spacing:.14em;box-shadow:0 0 0 5px #48df9818,0 10px 28px #48df983c;animation:portfolioLive 1.8s ease-in-out infinite}
+@keyframes portfolioLive{50%{filter:brightness(1.18);transform:scale(.96)}}
+.live-demo-card .demo-img b{color:#fff;background:#05070bc9;border:1px solid #ffffff22;border-radius:999px;padding:10px 13px;backdrop-filter:blur(12px)}
+.live-demo-card h4:after{content:"LIVE CLIENT WEBSITE";display:inline-block;vertical-align:middle;margin-left:10px;padding:5px 7px;border-radius:6px;background:#48df9814;color:#279e68;border:1px solid #48df9835;font-size:7px;letter-spacing:.11em}
+body[data-theme="light"] .live-demo-card h4:after{color:#087a49;background:#18a96612;border-color:#18a96638}
+@media(max-width:600px){.portfolio-live-dot{right:12px;top:12px}.live-demo-card h4:after{display:block;width:max-content;margin:7px 0 0}}
+
+/* ZYORYX horn-framed logo + Uiverse animated lockup */
+.logo-lockup{position:relative;display:inline-flex!important;align-items:center;isolation:isolate;border-radius:16px;padding:4px 8px 4px 4px;transition:transform .3s cubic-bezier(.2,.8,.2,1),filter .3s}
+.logo-lockup img{display:block;width:214px;height:56px;object-fit:contain;color:var(--text);filter:drop-shadow(0 0 14px color-mix(in srgb,var(--accent) 18%,transparent));transition:filter .3s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.logo-lockup .logo-light{display:none}
+.logo-lockup:before{content:"";position:absolute;inset:0;z-index:-1;border-radius:16px;background:linear-gradient(115deg,color-mix(in srgb,var(--accent) 9%,transparent),transparent 48%,color-mix(in srgb,var(--accent-2) 8%,transparent));border:1px solid transparent;opacity:0;transform:scale(.94);transition:.3s}
+.logo-lockup:hover{transform:translateY(-2px)}.logo-lockup:hover:before{opacity:1;transform:none;border-color:color-mix(in srgb,var(--accent) 24%,transparent)}.logo-lockup:hover img{transform:scale(1.018);filter:drop-shadow(0 0 20px color-mix(in srgb,var(--accent) 32%,transparent))}
+body[data-theme="light"] .logo-lockup .logo-dark{display:none}
+body[data-theme="light"] .logo-lockup .logo-light{display:block;filter:drop-shadow(0 6px 12px rgba(50,70,100,.12))}
+.footer-logo img{width:250px;height:66px}.footer-logo{justify-content:flex-start}
+@media(max-width:650px){.logo-lockup{padding:2px}.logo-lockup img{width:142px;height:40px}.footer-logo img{width:190px;height:52px}footer .footer-logo{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.logo-lockup,.logo-lockup img,.logo-lockup:before{transition:none!important}}
