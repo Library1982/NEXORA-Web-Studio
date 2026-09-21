@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 150" role="img" aria-label="MYORYX M and Y oryx mark">
+  <rect width="168" height="150" rx="28" fill="#07111f"/>
+  <g fill="none" stroke="#d9b065" stroke-linecap="round">
+    <path d="M42 91C55 55 79 28 120 13" stroke-width="9"/><path d="M126 91C113 55 89 28 48 13" stroke-width="9"/><path d="M55 67Q84 49 113 67" stroke-width="6"/><path d="M61 109Q84 135 107 109" stroke-width="6"/>
+  </g>
+  <path fill="#e10600" d="M51 112V70l33 31 33-31v42h-13V91l-20 19-20-19v21z"/>
+  <path fill="#ff4b45" d="M64 68h15l13 16 13-16h15L99 94v20H85V94z"/>
+</svg>

@@ -1,4 +1,4 @@
-ZYORYX Digital Solutions — Light / Dark / Color Themes
+MYORYX Digital Solutions — Light / Dark / Adaptive Color Themes
 
 New features:
 - Light Mode
@@ -8,6 +8,7 @@ New features:
 - 5 user-selectable accent colors:
   Cyan, Purple, Gold, Green, Rose
 - Theme and color preference are saved automatically in the visitor's browser (localStorage)
+- Adaptive MY identity: M uses the primary accent, Y uses the secondary accent, while the oryx and ORYX remain champagne gold
 - Existing vertical social bar stays on the right
 - WhatsApp remains +971 56 747 0886
 - Projects navigation, pricing and all business demos remain included

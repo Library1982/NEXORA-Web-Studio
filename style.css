@@ -95,8 +95,10 @@
    USER LIGHT / DARK + ACCENT COLOR THEMES
    ========================================================= */
 :root{
-  --accent:#6ee7ff;
-  --accent-2:#7276ff;
+  --accent:#e10600;
+  --accent-2:#ff4b45;
+  --brand-gold:#d9b065;
+  --brand-gold-light:#f1d18c;
   --bg:#05070b;
   --bg-soft:#080b11;
   --panel:#0d131d;
@@ -111,6 +113,8 @@ body{
   color:var(--text);
   transition:background .35s ease,color .35s ease;
 }
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.34;background-image:linear-gradient(115deg,color-mix(in srgb,var(--accent) 3%,transparent) 1px,transparent 1px),radial-gradient(circle at 20% 15%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 28%),radial-gradient(circle at 80% 85%,color-mix(in srgb,var(--accent-2) 7%,transparent),transparent 30%);background-size:42px 42px,100% 100%,100% 100%;transition:background-image .35s ease,opacity .35s ease}
+body[data-theme="light"]:before{opacity:.22}
 body[data-theme="light"]{
   --bg:#f4f7fb;
   --bg-soft:#ffffff;
@@ -276,7 +280,7 @@ body[data-theme="light"] .social-toggle{background:#fff;color:#172333}
 }
 
 /* =========================================================
-   UIVERSE COMPONENT SYSTEM — adapted for ZYORYX
+   UIVERSE COMPONENT SYSTEM — adapted for MYORYX
    Source inspiration: Uiverse open-source CSS components (MIT)
    ========================================================= */
 :root{--ui-radius:18px;--ui-speed:.28s;--ui-ease:cubic-bezier(.2,.8,.2,1)}
@@ -364,14 +368,14 @@ body[data-theme="light"] .live-work{background:linear-gradient(145deg,#fff,#f1f5
 body[data-theme="light"] .live-demo-card h4:after{color:#087a49;background:#18a96612;border-color:#18a96638}
 @media(max-width:600px){.portfolio-live-dot{right:12px;top:12px}.live-demo-card h4:after{display:block;width:max-content;margin:7px 0 0}}
 
-/* ZYORYX horn-framed logo + Uiverse animated lockup */
+/* MYORYX adaptive oryx + MY identity lockup */
 .logo-lockup{position:relative;display:inline-flex!important;align-items:center;isolation:isolate;border-radius:16px;padding:4px 8px 4px 4px;transition:transform .3s cubic-bezier(.2,.8,.2,1),filter .3s}
-.logo-lockup img{display:block;width:214px;height:56px;object-fit:contain;color:var(--text);filter:drop-shadow(0 0 14px color-mix(in srgb,var(--accent) 18%,transparent));transition:filter .3s,transform .3s cubic-bezier(.2,.8,.2,1)}
-.logo-lockup .logo-light{display:none}
+.adaptive-logo{display:block;width:214px;height:56px}.myoryx-svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 14px color-mix(in srgb,var(--accent) 18%,transparent));transition:filter .3s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.identity-m{fill:var(--accent)}.identity-y{fill:var(--accent-2)}.oryx-gold{fill:var(--brand-gold);color:var(--brand-gold)}.myoryx-svg g.oryx-gold{fill:none}.logo-subtitle{fill:var(--muted)}
 .logo-lockup:before{content:"";position:absolute;inset:0;z-index:-1;border-radius:16px;background:linear-gradient(115deg,color-mix(in srgb,var(--accent) 9%,transparent),transparent 48%,color-mix(in srgb,var(--accent-2) 8%,transparent));border:1px solid transparent;opacity:0;transform:scale(.94);transition:.3s}
-.logo-lockup:hover{transform:translateY(-2px)}.logo-lockup:hover:before{opacity:1;transform:none;border-color:color-mix(in srgb,var(--accent) 24%,transparent)}.logo-lockup:hover img{transform:scale(1.018);filter:drop-shadow(0 0 20px color-mix(in srgb,var(--accent) 32%,transparent))}
-body[data-theme="light"] .logo-lockup .logo-dark{display:none}
-body[data-theme="light"] .logo-lockup .logo-light{display:block;filter:drop-shadow(0 6px 12px rgba(50,70,100,.12))}
+.logo-lockup:hover{transform:translateY(-2px)}.logo-lockup:hover:before{opacity:1;transform:none;border-color:color-mix(in srgb,var(--accent) 24%,transparent)}.logo-lockup:hover .myoryx-svg{transform:scale(1.018);filter:drop-shadow(0 0 20px color-mix(in srgb,var(--accent) 32%,transparent))}
+body[data-theme="light"] .myoryx-svg{filter:drop-shadow(0 6px 12px rgba(50,70,100,.12))}body[data-theme="light"] .oryx-gold{color:#a87521;fill:#a87521}body[data-theme="light"] .myoryx-svg g.oryx-gold{fill:none}
+.loader-brand{width:96px;height:96px}.loader-brand .myoryx-svg{filter:drop-shadow(0 0 24px color-mix(in srgb,var(--accent) 42%,transparent));animation:markFloat 2.2s ease-in-out infinite}
 .footer-logo img{width:250px;height:66px}.footer-logo{justify-content:flex-start}
-@media(max-width:650px){.logo-lockup{padding:2px}.logo-lockup img{width:142px;height:40px}.footer-logo img{width:190px;height:52px}footer .footer-logo{justify-content:center}}
-@media(prefers-reduced-motion:reduce){.logo-lockup,.logo-lockup img,.logo-lockup:before{transition:none!important}}
+@media(max-width:650px){.logo-lockup{padding:2px}.adaptive-logo{width:148px;height:42px}.footer-logo .adaptive-logo{width:200px;height:54px}footer .footer-logo{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.logo-lockup,.myoryx-svg,.logo-lockup:before{transition:none!important}}
