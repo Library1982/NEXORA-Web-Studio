@@ -379,3 +379,36 @@ body[data-theme="light"] .myoryx-svg{filter:drop-shadow(0 6px 12px rgba(50,70,10
 .footer-logo img{width:250px;height:66px}.footer-logo{justify-content:flex-start}
 @media(max-width:650px){.logo-lockup{padding:2px}.logo-lockup .adaptive-logo{width:170px;height:46px}.footer-logo .adaptive-logo{width:225px;height:58px}footer .footer-logo{justify-content:center}}
 @media(prefers-reduced-motion:reduce){.logo-lockup,.myoryx-svg,.logo-lockup:before{transition:none!important}}
+
+/* =========================================================
+   MYORYX THEME, CONTRAST & STABILITY PASS
+   Uiverse components adapted to the site's token system.
+   ========================================================= */
+body[data-theme="dark"] header{background:linear-gradient(rgba(5,7,11,.97),rgba(5,7,11,.78),transparent)}
+body[data-theme="light"] header{background:linear-gradient(rgba(244,247,251,.98),rgba(244,247,251,.86),transparent)}
+nav a{color:var(--muted);transition:color .2s ease}nav a:hover{color:var(--text)}
+.kicker,.eyebrow,.hero-copy>p,.section-head p,.service p,.steps p,.price-card p,.price-card li,.demo-card p,.trust,.scroll{color:var(--muted)}
+.pill,.primary,.secondary,.plan-wa,.project-meta button{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.menu{color:var(--text)}
+footer{background:color-mix(in srgb,var(--bg) 96%,var(--panel));color:var(--muted)}
+body[data-theme="light"] .service:hover{background:var(--panel-2)}
+body[data-theme="light"] .filters button{background:#fff;color:#39485a;border-color:#cbd7e4}
+body[data-theme="light"] .filters button:hover{background:#eef3f8;color:#172231}
+body[data-theme="light"] .filters button.active{background:#111827!important;color:#fff!important;border-color:#111827!important}
+body[data-theme="light"] .theme-popover{background:rgba(255,255,255,.96)!important}
+body[data-theme="light"] .contact-icon:not(.wa){color:#526174}
+body[data-theme="light"] .contact-icon:not(.wa):hover{color:#fff}
+body[data-theme="light"] .identity-m,body[data-theme="light"] .identity-y{stroke:rgba(7,17,31,.36);stroke-width:1.4px;paint-order:stroke fill}
+body[data-theme="light"] .myoryx-svg text.oryx-gold{stroke:rgba(255,255,255,.55);stroke-width:.8px;paint-order:stroke fill}
+body[data-theme="dark"] .myoryx-svg{filter:drop-shadow(0 0 12px color-mix(in srgb,var(--accent) 22%,transparent)) drop-shadow(0 2px 8px rgba(0,0,0,.45))}
+body[data-theme="light"] .uiverse-loader{background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--accent) 9%,#f4f7fb),#f4f7fb 52%)}
+body[data-theme="light"] .uiverse-loader>b{color:#101722}
+.theme-main-btn,.header-theme-toggle,.color-dot,.mode-btn,.contact-icon,.menu{touch-action:manipulation}
+.theme-main-btn[aria-expanded="true"]{border-color:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 12%,transparent),0 14px 36px var(--shadow)}
+.browser{animation:browserFloat 6s ease-in-out infinite;will-change:transform}
+@keyframes browserFloat{0%,100%{transform:rotateY(-8deg) rotateX(3deg) translateY(0)}50%{transform:rotateY(-6deg) rotateX(3deg) translateY(-12px)}}
+.phone,.float-card,.orb{will-change:transform}
+@media(max-width:1000px){.browser{animation:mobileFloat 6s ease-in-out infinite}@keyframes mobileFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}}
+@media(max-width:650px){header{padding-inline:14px}.header-actions{gap:7px}.hero{overflow:hidden}.contact-line{max-height:calc(100vh - 24px);overflow:auto}.theme-popover{max-width:calc(100vw - 20px)}.trust{gap:16px}.scroll{display:none}}
+@media(hover:none){.service:hover,.price-card:hover,.steps>div:hover,.demo-card:hover .demo-img,.live-site-card:hover{transform:none}.primary:hover,.plan-wa:hover,.featured>a:hover,.pill:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.browser,.phone,.float-card,.orb,.marquee div,.line,.save-pill,.popular,.offer-ribbon,.portfolio-live-dot,.live-dot,.loader-brand .myoryx-svg{animation:none!important;transform:none!important}.stage{transform:none!important}}
